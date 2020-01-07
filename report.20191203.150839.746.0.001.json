@@ -1,0 +1,402 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20191203.150839.746.0.001.json",
+    "dumpEventTime": "2019-12-03T15:08:39Z",
+    "dumpEventTimeStamp": "1575360519038",
+    "processId": 746,
+    "cwd": "/media/overlord/Dataku/mq/mobile/mannaQueen",
+    "commandLine": [
+      "node",
+      "/usr/local/bin/expo-cli",
+      "start"
+    ],
+    "nodejsVersion": "v12.12.0",
+    "glibcVersionRuntime": "2.27",
+    "glibcVersionCompiler": "2.17",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "linux",
+    "componentVersions": {
+      "node": "12.12.0",
+      "v8": "7.7.299.13-node.12",
+      "uv": "1.32.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.39.2",
+      "napi": "5",
+      "llhttp": "1.1.4",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019a",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "headersUrl": "https://nodejs.org/download/release/v12.12.0/node-v12.12.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.12.0/node-v12.12.0.tar.gz"
+    },
+    "osName": "Linux",
+    "osRelease": "4.15.0-70-generic",
+    "osVersion": "#79-Ubuntu SMP Tue Nov 12 10:36:11 UTC 2019",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i3-4005U CPU @ 1.70GHz",
+        "speed": 1596,
+        "user": 126784600,
+        "nice": 285000,
+        "sys": 50130500,
+        "idle": 558202000,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i3-4005U CPU @ 1.70GHz",
+        "speed": 1596,
+        "user": 125791300,
+        "nice": 187400,
+        "sys": 50941500,
+        "idle": 561588100,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i3-4005U CPU @ 1.70GHz",
+        "speed": 1596,
+        "user": 126155200,
+        "nice": 153300,
+        "sys": 50706600,
+        "idle": 562824400,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i3-4005U CPU @ 1.70GHz",
+        "speed": 1596,
+        "user": 126352200,
+        "nice": 171800,
+        "sys": 50277400,
+        "idle": 562352600,
+        "irq": 0
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "lo",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "wlp3s0",
+        "internal": false,
+        "mac": "28:c2:dd:cb:34:b0",
+        "address": "192.168.1.6",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "lo",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "wlp3s0",
+        "internal": false,
+        "mac": "28:c2:dd:cb:34:b0",
+        "address": "fe80::79e8:91f:2bec:354",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 3
+      }
+    ],
+    "host": "overlord-PC"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x0000000000b02675",
+      "symbol": "report::TriggerNodeReport(v8::Isolate*, node::Environment*, char const*, char const*, std::string const&, v8::Local<v8::String>) [node]"
+    },
+    {
+      "pc": "0x00000000009d9fa3",
+      "symbol": "node::OnFatalError(char const*, char const*) [node]"
+    },
+    {
+      "pc": "0x0000000000b37c3e",
+      "symbol": "v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, bool) [node]"
+    },
+    {
+      "pc": "0x0000000000b37fb9",
+      "symbol": "v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, bool) [node]"
+    },
+    {
+      "pc": "0x0000000000ce3375",
+      "symbol": " [node]"
+    },
+    {
+      "pc": "0x0000000000ce3a06",
+      "symbol": "v8::internal::Heap::RecomputeLimits(v8::internal::GarbageCollector) [node]"
+    },
+    {
+      "pc": "0x0000000000cef89a",
+      "symbol": "v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::GCCallbackFlags) [node]"
+    },
+    {
+      "pc": "0x0000000000cf07a5",
+      "symbol": "v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [node]"
+    },
+    {
+      "pc": "0x0000000000cf31b8",
+      "symbol": "v8::internal::Heap::AllocateRawWithRetryOrFail(int, v8::internal::AllocationType, v8::internal::AllocationAlignment) [node]"
+    },
+    {
+      "pc": "0x0000000000cb9ae7",
+      "symbol": "v8::internal::Factory::NewFillerObject(int, bool, v8::internal::AllocationType) [node]"
+    },
+    {
+      "pc": "0x0000000000fefa1b",
+      "symbol": "v8::internal::Runtime_AllocateInYoungGeneration(int, unsigned long*, v8::internal::Isolate*) [node]"
+    },
+    {
+      "pc": "0x0000000001372459",
+      "symbol": " [node]"
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2151190528,
+    "totalCommittedMemory": 2149436744,
+    "usedMemory": 2138456104,
+    "availableMemory": 49021256,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 32568,
+        "capacity": 261872,
+        "used": 32296,
+        "available": 229576
+      },
+      "new_space": {
+        "memorySize": 2097152,
+        "committedMemory": 1134064,
+        "capacity": 1047488,
+        "used": 84800,
+        "available": 962688
+      },
+      "old_space": {
+        "memorySize": 2138157056,
+        "committedMemory": 2137961424,
+        "capacity": 2130985536,
+        "used": 2130828800,
+        "available": 156736
+      },
+      "code_space": {
+        "memorySize": 1474560,
+        "committedMemory": 1347520,
+        "capacity": 1142656,
+        "used": 1142656,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 5771264,
+        "committedMemory": 5532816,
+        "capacity": 3006800,
+        "used": 3006800,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 3379200,
+        "committedMemory": 3379200,
+        "capacity": 3357200,
+        "used": 3357200,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 49152,
+        "committedMemory": 49152,
+        "capacity": 3552,
+        "used": 3552,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 1047488,
+        "used": 0,
+        "available": 1047488
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 442.879,
+    "kernelCpuSeconds": 85.9751,
+    "cpuConsumptionPercent": 3.76221,
+    "maxRss": 2247704576,
+    "pageFaults": {
+      "IORequired": 19,
+      "IONotRequired": 13997767
+    },
+    "fsActivity": {
+      "reads": 3328,
+      "writes": 296
+    }
+  },
+  "uvthreadResourceUsage": {
+    "userCpuSeconds": 245.698,
+    "kernelCpuSeconds": 72.4411,
+    "cpuConsumptionPercent": 2.26321,
+    "fsActivity": {
+      "reads": 3312,
+      "writes": 0
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "XDG_SEAT": "seat0",
+    "XDG_SESSION_ID": "2",
+    "LC_IDENTIFICATION": "id_ID.UTF-8",
+    "WINDOWPATH": "2",
+    "ANDROID_HOME": "/media/overlord/Dataku/androidstudio.data/sdk",
+    "DISPLAY": ":0",
+    "DBUS_STARTER_ADDRESS": "unix:path=/run/user/1000/bus,guid=fadcc3f44bcd6c71021ad82e5de4efd5",
+    "COLORTERM": "truecolor",
+    "GNOME_TERMINAL_SERVICE": ":1.1128",
+    "GNOME_DESKTOP_SESSION_ID": "this-is-deprecated",
+    "DEFAULTS_PATH": "/usr/share/gconf/ubuntu.default.path",
+    "LOGNAME": "overlord",
+    "TEXTDOMAIN": "im-config",
+    "JAVA_HOME": "/usr/lib/jvm/java-8-oracle",
+    "SHELL": "/bin/bash",
+    "LC_TIME": "id_ID.UTF-8",
+    "PATH": "/usr/bin/mongo:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/media/overlord/Dataku/androidstudio.data/sdk/platform-tools:/media/overlord/Dataku/androidstudio.data/sdk:/tools:/media/overlord/Dataku/androidstudio.data/apps/android-studio/gradle/gradle-4.1/bin",
+    "LC_NUMERIC": "id_ID.UTF-8",
+    "LC_PAPER": "id_ID.UTF-8",
+    "IM_CONFIG_PHASE": "2",
+    "TEXTDOMAINDIR": "/usr/share/locale/",
+    "CLUTTER_IM_MODULE": "xim",
+    "QT4_IM_MODULE": "xim",
+    "INVOCATION_ID": "e553a506d528416fbd7f86846d2f5e2f",
+    "GRADLE_HOME": "/media/overlord/Dataku/androidstudio.data/apps/android-studio/gradle/gradle-4.1",
+    "J2REDIR": "/usr/lib/jvm/java-8-oracle/jre",
+    "XDG_MENU_PREFIX": "gnome-",
+    "XAUTHORITY": "/run/user/1000/gdm/Xauthority",
+    "XDG_SESSION_DESKTOP": "ubuntu",
+    "GDMSESSION": "ubuntu",
+    "QT_IM_MODULE": "ibus",
+    "SSH_AUTH_SOCK": "/run/user/1000/keyring/ssh",
+    "LC_MEASUREMENT": "id_ID.UTF-8",
+    "LESSOPEN": "| /usr/bin/lesspipe %s",
+    "XMODIFIERS": "@im=ibus",
+    "GNOME_SHELL_SESSION_MODE": "ubuntu",
+    "LC_ADDRESS": "id_ID.UTF-8",
+    "XDG_CONFIG_DIRS": "/etc/xdg/xdg-ubuntu:/etc/xdg",
+    "MANDATORY_PATH": "/usr/share/gconf/ubuntu.mandatory.path",
+    "USERNAME": "overlord",
+    "DESKTOP_SESSION": "ubuntu",
+    "XDG_RUNTIME_DIR": "/run/user/1000",
+    "LS_COLORS": "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:",
+    "GTK_IM_MODULE": "ibus",
+    "GTK_MODULES": "gail:atk-bridge",
+    "USER": "overlord",
+    "PWD": "/media/overlord/Dataku/mq/mobile/mannaQueen",
+    "DERBY_HOME": "/usr/lib/jvm/java-8-oracle/db",
+    "LC_MONETARY": "id_ID.UTF-8",
+    "VTE_VERSION": "5202",
+    "HOME": "/home/overlord",
+    "LESSCLOSE": "/usr/bin/lesspipe %s %s",
+    "QT_ACCESSIBILITY": "1",
+    "SSH_AGENT_PID": "1780",
+    "XDG_DATA_DIRS": "/usr/share/ubuntu:/usr/local/share:/usr/share:/var/lib/snapd/desktop",
+    "MANAGERPID": "1658",
+    "LANG": "en_US.UTF-8",
+    "LC_NAME": "id_ID.UTF-8",
+    "GNOME_TERMINAL_SCREEN": "/org/gnome/Terminal/screen/5f9cc908_e9f8_4055_a3fd_08751ae422fa",
+    "GPG_AGENT_INFO": "/run/user/1000/gnupg/S.gpg-agent:0:1",
+    "SHLVL": "2",
+    "JOURNAL_STREAM": "9:33938",
+    "J2SDKDIR": "/usr/lib/jvm/java-8-oracle",
+    "XDG_VTNR": "2",
+    "DBUS_STARTER_BUS_TYPE": "session",
+    "TERM": "xterm-256color",
+    "_": "/usr/bin/gnome-terminal",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1000/bus,guid=fadcc3f44bcd6c71021ad82e5de4efd5",
+    "XDG_SESSION_TYPE": "x11",
+    "SESSION_MANAGER": "local/overlord-PC:@/tmp/.ICE-unix/1686,unix/overlord-PC:/tmp/.ICE-unix/1686",
+    "XDG_CURRENT_DESKTOP": "ubuntu:GNOME",
+    "LC_TELEPHONE": "id_ID.UTF-8"
+  },
+  "userLimits": {
+    "core_file_size_blocks": {
+      "soft": 0,
+      "hard": "unlimited"
+    },
+    "data_seg_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "file_size_blocks": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_locked_memory_bytes": {
+      "soft": 16777216,
+      "hard": 16777216
+    },
+    "max_memory_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "open_files": {
+      "soft": 4096,
+      "hard": 4096
+    },
+    "stack_size_bytes": {
+      "soft": 8388608,
+      "hard": "unlimited"
+    },
+    "cpu_time_seconds": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_user_processes": {
+      "soft": 39355,
+      "hard": 39355
+    },
+    "virtual_memory_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    }
+  },
+  "sharedObjects": [
+    "linux-vdso.so.1",
+    "/lib/x86_64-linux-gnu/libdl.so.2",
+    "/usr/lib/x86_64-linux-gnu/libstdc++.so.6",
+    "/lib/x86_64-linux-gnu/libm.so.6",
+    "/lib/x86_64-linux-gnu/libgcc_s.so.1",
+    "/lib/x86_64-linux-gnu/libpthread.so.0",
+    "/lib/x86_64-linux-gnu/libc.so.6",
+    "/lib64/ld-linux-x86-64.so.2",
+    "/lib/x86_64-linux-gnu/libnss_files.so.2",
+    "/lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2",
+    "/lib/x86_64-linux-gnu/libnss_dns.so.2",
+    "/lib/x86_64-linux-gnu/libresolv.so.2"
+  ]
+}

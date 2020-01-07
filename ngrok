@@ -1,0 +1,7 @@
+#!/bin/bash
+STR=$1
+gnome-terminal --working-directory='/home/overlord/' -e 'ngrok http  '$STR:8080
+gnome-terminal --working-directory='/home/overlord/' -e 'ngrok http '$STR:8081
+
+gnome-terminal --working-directory='/media/overlord/Dataku/mq/mobile/mannaQueen' -e 'expo-cli start'
+clear

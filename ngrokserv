@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Masukkan IP Server : " 
+read STR
+gnome-terminal --working-directory='/var/www/html/mannaqueen' -e 'ngrok http '$STR':8080'
+gnome-terminal --working-directory='/var/www/html/mannaqueen' -e 'ngrok http '$STR':8081'

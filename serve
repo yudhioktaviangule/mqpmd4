@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Masukkan IP Server : " 
+read STR
+gnome-terminal --working-directory='/var/www/html/mannaqueen' -e './serve_api '$STR
+gnome-terminal --working-directory='/var/www/html/mannaqueen' -e './serve_gbr '$STR
+gnome-terminal --working-directory='/var/www/html/mannaqueen' -e './serve_pusat '$STR
+clear
+echo "web running di server http://"$STR":8000"
+echo "api running di server http://"$STR":8080"
+echo "gambar running di server http://"$STR":8080"
+./ngrok $STR

@@ -1,10 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
-import { home as hm } from "../Stylish";
+import { home as hm, NAV_HEIGHT, DIMENSI_WIDTH, StyleSheet } from "../Stylish";
 import { Feather } from "@expo/vector-icons";
 import { warna } from "../../../constants";
+import Svg, { Path } from "react-native-svg";
 
 const home = hm;
+const height = NAV_HEIGHT/2;
+const width = DIMENSI_WIDTH;
 const RedBackButton = props => {
   return (
     <View
@@ -27,23 +30,20 @@ const RedBackButton = props => {
           onPress={() => {
             const { navigation } = props;
             const { params } = navigation.state;
-            if(props.navBackto!==undefined){
-              
+            if (props.navBackto !== undefined) {
               props.navBackto();
-            }else{
-
-              if(params!==undefined){
-                  if (params.navBack == undefined) {
-                    navigation.goBack();
-                  } else {
-                    let param = params;
-                    delete param.key;
-                    delete param.id;
-                    navigation.navigate(params.navBack, param);
-                  }
-  
-              }else{
+            } else {
+              if (params !== undefined) {
+                if (params.navBack == undefined) {
                   navigation.goBack();
+                } else {
+                  let param = params;
+                  delete param.key;
+                  delete param.id;
+                  navigation.navigate(params.navBack, param);
+                }
+              } else {
+                navigation.goBack();
               }
             }
           }}
@@ -74,7 +74,7 @@ const RedBackButton = props => {
     </View>
   );
 };
-const RedNoBackButton = (props) => {
+const RedNoBackButton = props => {
   return (
     <View
       style={[
@@ -101,9 +101,9 @@ const RedNoBackButton = (props) => {
           {props.title}
         </Text>
       </View>
-      
     </View>
-  );
+ 
+ );
 };
 const whiteBackButton = props => {
   return (
@@ -127,23 +127,20 @@ const whiteBackButton = props => {
           onPress={() => {
             const { navigation } = props;
             const { params } = navigation.state;
-            if(props.navBackto!==undefined){
-              
+            if (props.navBackto !== undefined) {
               props.navBackto();
-            }else{
-
-              if(params!==undefined){
-                  if (params.navBack == undefined) {
-                    navigation.goBack();
-                  } else {
-                    let param = params;
-                    delete param.key;
-                    delete param.id;
-                    navigation.navigate(params.navBack, param);
-                  }
-  
-              }else{
+            } else {
+              if (params !== undefined) {
+                if (params.navBack == undefined) {
                   navigation.goBack();
+                } else {
+                  let param = params;
+                  delete param.key;
+                  delete param.id;
+                  navigation.navigate(params.navBack, param);
+                }
+              } else {
+                navigation.goBack();
               }
             }
           }}
@@ -174,7 +171,7 @@ const whiteBackButton = props => {
     </View>
   );
 };
-const whiteNoBackButton = (props) => {
+const whiteNoBackButton = props => {
   return (
     <View
       style={[
@@ -201,9 +198,66 @@ const whiteNoBackButton = (props) => {
           {props.title}
         </Text>
       </View>
-      
     </View>
   );
 };
+const RedCurvedHeader = props => {
 
-export {RedBackButton,RedNoBackButton,whiteBackButton as WhiteBackButton,whiteNoBackButton as WhiteNoBackButton}
+  return (
+    <Fragment>
+   <View
+      style={[
+        home.smallContainer,
+        home.flexRow,
+        { padding: 10, justifyContent: "center" },
+        
+      ]}
+    >
+
+      <View
+        style={{
+          width: "90%",
+          justifyContent: "flex-end",
+          alignItems: "flex-start",
+          alignContent: "center"
+        }}
+      >
+        <Text
+          style={[
+            home.navTextStyle,
+            { alignContent: "center", color: "white" }
+          ]}
+        >
+          {props.title}
+        </Text>
+      </View>
+    </View>
+       
+    </Fragment>
+  );
+};
+const CurvedSvg = (props)=>{
+  const curve_d = `M 0 0 q ${width/2} 30 ${width} 0 z`;
+  const vboxProps = `0 0 ${width} ${height}`;
+  return (
+    <Fragment>
+      <View style={[StyleSheet.absoluteFill,{top:props.top,zIndex:0}]}>
+        <Svg width={width} height={height} viewBox={vboxProps}>
+          <Path
+            d={curve_d}
+            fill={props.fill}
+            />
+        </Svg>
+      </View>
+
+    </Fragment>
+  );
+}
+export {
+  CurvedSvg,
+  RedCurvedHeader,
+  RedBackButton,
+  RedNoBackButton,
+  whiteBackButton as WhiteBackButton,
+  whiteNoBackButton as WhiteNoBackButton
+};

@@ -1,18 +1,16 @@
 import React, { Component, Fragment } from "react";
-import { Text, View, SafeAreaView } from "react-native";
+import { Text, View, SafeAreaView, ActivityIndicator } from "react-native";
 import { connect } from "react-redux";
-import { home, StyleSheet } from "../Stylish";
-import { RedCurvedHeader, CurvedSvg } from "../componentsData/Header";
+import { home } from "../Stylish";
+import { RedNoBackButton } from "../componentsData/Header";
 import ViewContent from "../componentsData/Content";
 import { TouchableOpacity, FlatList } from "react-native-gesture-handler";
-
+import { Feather } from "../../../../RouterModule";
 import { Badge } from "react-native-elements";
-import { getNotificate, notifURL, CreateIcon, TheBadge } from "./NotificationModel";
+import { getNotificate, notifURL, CreateIcon } from "./NotificationModel";
 import { httpHeader } from "../../../service-function/httpHeader";
 import { device, warna } from "../../../constants";
 import NavRouteBackFunction from "../../../service-function/NavRouteBackFunction";
-import { WhiteLoading } from "../componentsData/LoadingComponent";
-import FormatWaktu from '../../../service-function/formatWaktu';
 
 const style = home;
 class NotifikasiPage extends Component<any> {
@@ -56,21 +54,23 @@ class NotifikasiPage extends Component<any> {
       const navback = NavRouteBackFunction(routeName, paramPage);
       navigation.navigate(toRouter, navback);
     },
-    getBadge: props => {
-      return (
-        <Fragment>
-          {TheBadge(props.notif_time)}
-        </Fragment>
-      )
-    },
     readLastNotifications: props => {
-      const { notif_time,icon, iconColor, targetType, text, background, target } = props;
+      const { icon, iconColor, targetType, text, background, target } = props;
       let icondatasplit = icon.split(":");
       
-      
       return (
         <Fragment>
-          <View style={[style.fluid, { borderRadius:5, paddingVertical: 16,backgroundColor:'white',marginVertical:5, }]}>
+          <View
+            style={[
+              style.fluid,
+              {
+                paddingVertical: 10,
+                borderRadius: 5,
+                marginVertical: 5,
+                backgroundColor: "white"
+              }
+            ]}
+          >
             <TouchableOpacity
               onPress={() => {
                 this.handler.navigateNotifications(target, targetType);
@@ -82,14 +82,10 @@ class NotifikasiPage extends Component<any> {
                 color={iconColor}
                 bgcolor={background}
               />
-              <View style={[{ flex: 1,paddingHorizontal:15 }]}>
+              <View style={[style.fluid, { flex: 1 }]}>
                 <Text style={[style.thinText, { flexWrap: "wrap" }]}>
                   {text}
                 </Text>
-                <this.handler.getBadge notif_time={notif_time}/>
-              </View>
-              <View style={{width:'20%'}}>
-                
               </View>
             </TouchableOpacity>
           </View>
@@ -97,17 +93,10 @@ class NotifikasiPage extends Component<any> {
       );
     },
     createApps: () => {
-      if (this.state.isLoading) {
-        return (
-          <Fragment>
-            <WhiteLoading/>
-          </Fragment>
-        );
-      }
       return (
         <View style={[style.appContainer, style.bgNavRed]}>
           <SafeAreaView style={[style.appContainer, style.bgNavRed]}>
-            <RedCurvedHeader title="Notifikasi" {...this.props} />
+            <RedNoBackButton title="Notifikasi" {...this.props} />
             <ViewContent>
               <this.handler.createBody />
             </ViewContent>
@@ -132,135 +121,7 @@ class NotifikasiPage extends Component<any> {
         }
       });
     },
-    createNotifTop: () => {
-      return (
-        <View
-          style={[
-            style.smallContainer,
-            style.padding,
-            style.flexRow,
-            {
-              borderRadius: 5,
-              backgroundColor: "white",
-              shadowColor: "#000",
-              shadowOffset: {
-                width: 5,
-                height: 5
-              },
-              shadowRadius: 5,
-              shadowOpacity: 0.05
-            }
-          ]}
-        >
-          <View
-            style={{
-              flex: 1,
-              justifyContent: "center",
-              borderColor: "white",
-              borderStyle: "solid",
-              borderWidth: 1,
-              borderRightColor: warna.e3e3e3,
-              paddingHorizontal: 5,
-              alignItems: "center"
-            }}
-          >
-            <TouchableOpacity
-              onPress={() => {
-                this.handler.getNotificationLists("ApproveNotifikasi");
-              }}
-              style={{ paddingHorizontal: 2 }}
-            >
-              <View
-                style={{
-                  justifyContent: "center",
-                  alignContent: "center",
-                  alignItems: "center"
-                }}
-              >
-                <Text style={[style.thinText, { fontSize: 24 }]}>
-                  {this.state.notif.approve}
-                </Text>
-                <Text
-                  style={[style.thinText, { fontSize: 12, marginVertical: 4 }]}
-                >
-                  Verifikasi
-                </Text>
-              </View>
-            </TouchableOpacity>
-          </View>
 
-          <View
-            style={{
-              flex: 1,
-              justifyContent: "center",
-              borderColor: "white",
-              borderStyle: "solid",
-              borderWidth: 1,
-              borderRightColor: warna.e3e3e3,
-              paddingHorizontal: 5,
-              alignItems: "center"
-            }}
-          >
-            <TouchableOpacity
-              onPress={() => {
-                this.handler.getNotificationLists("KemasNotifikasi");
-              }}
-              style={{ paddingHorizontal: 2 }}
-            >
-              <View
-                style={{
-                  justifyContent: "center",
-                  alignContent: "center",
-                  alignItems: "center"
-                }}
-              >
-                <Text style={[style.thinText, { fontSize: 24 }]}>
-                  {this.state.notif.dikemas}
-                </Text>
-                <Text
-                  style={[style.thinText, { fontSize: 12, marginVertical: 4 }]}
-                >
-                  Pengemasan
-                </Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-
-          <View
-            style={{
-              flex: 1,
-              justifyContent: "center",
-
-              paddingHorizontal: 5,
-              alignItems: "center"
-            }}
-          >
-            <TouchableOpacity 
-                          onPress={()=>{
-                            this.handler.getNotificationLists("DikirimNotifikasi");
-                        }}   
-              style={{ paddingHorizontal: 2 }}>
-              <View
-                style={{
-                  justifyContent: "center",
-                  alignContent: "center",
-                  alignItems: "center"
-                }}
-              >
-                <Text style={[style.thinText, { fontSize: 24 }]}>
-                  {this.state.notif.dikirim}
-                </Text>
-                <Text
-                  style={[style.thinText, { fontSize: 12, marginVertical: 4 }]}
-                >
-                  Pengiriman
-                </Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        </View>
-      );
-    },
     renderFlatList: () => {
       return (
         <FlatList
@@ -272,35 +133,57 @@ class NotifikasiPage extends Component<any> {
           keyExtractor={(item, index) => {
             return `notifikasi-add-${index}`;
           }}
-       
+          ItemSeparatorComponent={() => {
+            return <View style={[style.line]}></View>;
+          }}
           contentContainerStyle={{ paddingTop: 5 }}
           showsVerticalScrollIndicator={false}
         />
       );
     },
     createBody: () => {
+      if (this.state.isLoading) {
+        return (
+          <Fragment>
+            <View
+              style={{
+                flex: 1,
+                justifyContent: "center",
+                alignItems: "center",
+                alignContent: "center"
+              }}
+            >
+              <ActivityIndicator />
+            </View>
+          </Fragment>
+        );
+      }
       return (
         <Fragment>
           <View
-            style={[{ backgroundColor: warna.alizarin, height: 40 }]}
-          ></View>
-          <CurvedSvg fill={warna.alizarin} top={40} />
-          <View
             style={[
-              StyleSheet.absoluteFillObject,
-              {
-                width: "90%",
-                left: "5%",
-                paddingHorizontal: 10
-              }
+              style.lineSepa,
+              style.fluid,
+              style.smallContainer,
+              { flex: 1 }
             ]}
           >
-            <this.handler.createNotifTop/>
-            <this.handler.renderFlatList/>
+            <View style={[style.flexRowCenter]}>
+              <Feather name="bell" style={[{ paddingBottom: 10 }]} />
+              <Text
+                style={[
+                  style.fluid,
+                  style.titleTextStyle,
+                  { paddingBottom: 10 }
+                ]}
+              >
+                Daftar Notifikasi
+              </Text>
+            </View>
+            <this.handler.renderFlatList />
           </View>
         </Fragment>
       );
-     
     },
     callbackFunctionAfterGetCount: response => {
       const { result } = response.data;

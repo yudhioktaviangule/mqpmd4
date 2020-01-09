@@ -2,12 +2,13 @@ import { DEVICE_DIMENSION } from "../../constants/device";
 
 import { warna } from "../../constants";
 import { StyleSheet } from "react-native";
-
+export {StyleSheet}; 
 export const DIMENSI_WIDTH = DEVICE_DIMENSION.width;
 export const DIMENSI_HEIGHT = DEVICE_DIMENSION.height;
 export const NAV_HEIGHT = DIMENSI_HEIGHT * 0.15;
 export const NAV_HALF_HEIGHT = NAV_HEIGHT / 2;
 export const home = StyleSheet.create({
+    
     line:{
         height:1,
         marginVertical:5,

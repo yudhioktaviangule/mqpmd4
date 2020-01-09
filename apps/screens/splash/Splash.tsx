@@ -17,6 +17,8 @@ import { notifURL, getNotificate } from "../pages/notifikasi/NotificationModel";
 import { httpHeader } from "../../service-function";
 import { Pulse } from "../../customComponent/animationLoader";
 import { DarkLoading } from "../pages/componentsData/LoadingComponent";
+import { BatasWaktuModel } from "../BatasWaktu";
+
 const styles = splashxstyle;
 const dvID = device;
 
@@ -66,14 +68,23 @@ class Splash extends Component<any, any> {
             // console.log("skipping",response.data);
             this.props.setMemberProps(memberModel);
             registerPush(token => {
-              console.log(token);
+              //console.log(token);
 
               let id = memberModel.id;
               const RFSHREDER = getRouterURLArray("expo", "register");
               sendFreelyHttpGET(
                 `${RFSHREDER.completeUrl}?id=${id}&token=${token}`,
                 response => {
-                  this.props.navigation.navigate("Tabbed");
+                  const header = httpHeader(device, memberModel.remember_token);
+                  const batasWaktu = BatasWaktuModel({
+                    member: { id: memberModel.id, name: memberModel.name },
+                    httpHeader: header
+                  });
+                  batasWaktu.getBatasWaktuKeranjang(() => {
+                    batasWaktu.getBatasWaktuTransaksi(() => {
+                      this.props.navigation.navigate("Tabbed");
+                    });
+                  });
                 },
                 err => {
                   console.log(err);
@@ -103,11 +114,9 @@ class Splash extends Component<any, any> {
   }
 
   render() {
-    
     return (
       <DarkLoading>
-        <StatusBar
-          barStyle="light-content"/>
+        <StatusBar barStyle="light-content" />
       </DarkLoading>
     );
   }

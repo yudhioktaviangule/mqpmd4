@@ -120,6 +120,14 @@ export const base_url = {
                 
             ]            
         },
+        {
+            prefixName:"batas_waktu/",
+            childs:[
+                {childName:'keranjang/'},
+                {childName:'transaksi/'},
+                
+            ]            
+        },
     ],
     picDirList:[
         {picName:"kat/"},

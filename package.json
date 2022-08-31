@@ -15,7 +15,7 @@
     "expo-image-picker": "~7.0.0",
     "expo-permissions": "~7.0.0",
     "moment": "^2.24.0",
-    "moment-timezone": "^0.5.27",
+    "moment-timezone": "^0.5.35",
     "react": "16.8.3",
     "react-dom": "16.8.3",
     "react-moment": "^0.9.6",
